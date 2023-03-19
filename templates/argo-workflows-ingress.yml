@@ -1,0 +1,31 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: argocd-workflows-ingress
+#   namespace: argo-workflows
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-nginx
+#     kubernetes.io/ingress.class: nginx
+#     #kubernetes.io/tls-acme: "true"
+#     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+#     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+#     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+#     ingress.kubernetes.io/rewrite-target: /$2
+#     #acme.cert-manager.io/http01-edit-in-place: "true"
+#     #cert-manager.io/issue-temporary-certificate: "true"
+# spec:
+#   rules:
+#   - host: workflows.tradevisdemo.online
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: argo-workflows-server
+#             port:
+#               number: 2746
+#   tls:
+#   - hosts:
+#     - workflows.tradevisdemo.online
+#     secretName: argocd-secret 

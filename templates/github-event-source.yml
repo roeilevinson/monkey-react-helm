@@ -1,0 +1,33 @@
+# # # Info on GitHub Webhook: https://developer.github.com/v3/repos/hooks/#create-a-hook
+# apiVersion: argoproj.io/v1alpha1
+# kind: EventSource
+# metadata:
+#   name:  github-event-source
+#   namespace: argo-events
+# spec:
+#   service:
+#     ports:
+#       - name: example
+#         port: 12000
+#         targetPort: 12000
+#   type: github
+#   github:
+#     example:
+#       owner: roeilevinson
+#       repository: monkey-react-helm
+#       webhook:
+#         endpoint: /push
+#         port: "12000"
+#         method: "POST"
+#         url: https://github.tradevisdemo.online
+#       events:
+#         - "*"
+#       apiToken:
+#         name: github-access
+#         key: token
+#       webhookSecret:
+#         name: github-access
+#         key: secret
+#       insecure: true
+#       active: true
+#       contentType: "json"
